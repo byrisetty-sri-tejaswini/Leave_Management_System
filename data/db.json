@@ -1,0 +1,58 @@
+{
+  "users": [
+    {
+      "email": "abc@gmail.com",
+      "role": "employee",
+      "password": "abc@123",
+      "id":"abc1"
+    },
+    {
+      "email": "cvb@gmail.com",
+      "role": "manager",
+      "password": "cvb@123",
+      "id":"cvb1"
+    },
+    {
+      "email": "xyz@gmail.com",
+      "role": "hr",
+      "password": "xyz@123",
+      "id":"xyz1"
+    },
+    {
+      "email": "def@gmail.com",
+      "role": "employee",
+      "password": "def@123",
+      "id":"def1"
+    },
+    {
+      "email": "pqr@gmail.com",
+      "role": "hr",
+      "password": "pqr@123", 
+      "id":"pqr1"
+    },
+    {
+      "email": "stu@gmail.com",
+      "role": "manager",
+      "password": "stu@123",
+      "id":"stu1"
+    },
+    {
+      "email": "employee@example.com",
+      "role": "employee",
+      "password": "employee123",
+      "id":"employee1"
+    },
+    {
+      "email": "manager@example.com",
+      "role": "manager",
+      "password": "manager123",
+      "id":"manager1"
+    },
+    {
+      "email": "hr@example.com",
+      "role": "hr",
+      "password": "hr123",
+      "id":"hr1"
+    }
+  ]
+}

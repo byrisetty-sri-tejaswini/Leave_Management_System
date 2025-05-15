@@ -1,0 +1,128 @@
+.emp-dashboard {
+    min-height: 80vh;
+    width: 70vw;
+    padding: 1rem;
+    margin: 0 -12%;
+    background-color: #f5f7fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+h2 {
+    color: #1a73e8;
+    text-align: center;
+    font-size: 28px;
+}
+
+.dashboard-container{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;    
+    flex-direction: row;
+    margin-bottom: 5%;
+}
+
+.emp-leave-balance {
+    background: #fff;
+    padding: 1%;
+    width:60%;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: auto;
+}
+
+.emp-leave-balance h3 {
+    color: #1a73e8;
+    font-size: 20px;
+}
+
+.emp-leave-balance p {
+    font-size: 16px;
+    color: #555; 
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-radius: 10px;
+    height: auto;
+}
+
+.leave-button {
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    width: 100%;
+}
+
+.leave-button:hover {
+    background-color: #155ab6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #666;
+}
+
+.close-button:hover {
+    color: #333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+    
+    .emp-leave-balance,
+    .action-buttons {
+        width: 100%;
+    }
+}
