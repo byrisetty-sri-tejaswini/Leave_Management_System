@@ -1,10 +1,14 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import EmployeeDashboard from './EmployeeDashboard';
 import ManagerDashboard from './ManagerDashboard';
 import HRDashboard from './HRDashboard';
 
-const Dashboard = () => {
+interface DashboardProps {
+    userId: string | null; // Pass userId as a prop 
+}
+
+const Dashboard: React.FC<DashboardProps> = ({userId}) => {
     const navigate = useNavigate();
 
     const userStr = sessionStorage.getItem('user');
@@ -18,7 +22,7 @@ const Dashboard = () => {
 
     if (!user) return null; 
 
-    switch (user.role) {
+    switch ((user.role).toLowerCase()) {
         case 'employee':
             return <EmployeeDashboard />;
         case 'manager':

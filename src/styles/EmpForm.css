@@ -1,0 +1,65 @@
+/* src/styles/EmployeeForm.css */
+.employee-form {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+.editing h2{
+    color: rgb(208, 19, 19);
+    margin-right:36%;
+}
+
+.employee-form h2 {
+    margin-bottom: 10px;
+    text-align: center;
+    margin-left: 10%;
+}
+
+.employee-form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.employee-form input{
+    width: 95%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+.employee-form select {
+    width: 98%;
+    padding: 8px;
+    margin-bottom: 10px;
+}   
+
+.employee-form button {
+    margin-top: 10px;
+}
+.employee-form .error {
+    color: red;
+    font-size: 12px;
+}
+.employee-form .success {
+    color: green;
+    font-size: 12px;
+}
+
+[type=submit]{
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+[type=button]{
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+

@@ -1,58 +1,162 @@
 {
   "users": [
     {
-      "email": "abc@gmail.com",
-      "role": "employee",
-      "password": "abc@123",
-      "id":"abc1"
-    },
-    {
-      "email": "cvb@gmail.com",
+      "email": "shyam@gmail.com",
       "role": "manager",
-      "password": "cvb@123",
-      "id":"cvb1"
+      "password": "Shyam",
+      "id": "Shyam123",
+      "name": "Shyam",
+      "reports": "-",
+      "paidLeaveBalance": 10,
+      "unpaidLeaveBalance": 10
     },
     {
-      "email": "xyz@gmail.com",
-      "role": "hr",
-      "password": "xyz@123",
-      "id":"xyz1"
-    },
-    {
-      "email": "def@gmail.com",
+      "email": "teju@gmail.com",
       "role": "employee",
-      "password": "def@123",
-      "id":"def1"
+      "password": "Teju",
+      "id": "Teju123",
+      "name": "Teju",
+      "reports": "Sreekar123",
+      "paidLeaveBalance": 10,
+      "unpaidLeaveBalance": 10
     },
     {
-      "email": "pqr@gmail.com",
-      "role": "hr",
-      "password": "pqr@123", 
-      "id":"pqr1"
-    },
-    {
-      "email": "stu@gmail.com",
+      "email": "sreekar@gmail.com",
       "role": "manager",
-      "password": "stu@123",
-      "id":"stu1"
+      "password": "Sreekar",
+      "id": "Sreekar123",
+      "name": "Sreekar",
+      "reports": "Shyam123",
+      "paidLeaveBalance": 8,
+      "unpaidLeaveBalance": 10
     },
     {
-      "email": "employee@example.com",
+      "email": "dharani@gmail.com",
+      "role": "hr",
+      "password": "Dharani",
+      "id": "Dharani123",
+      "name": "Dharani",
+      "reports": "Santhosh123",
+      "paidLeaveBalance": 10,
+      "unpaidLeaveBalance": 10
+    },
+    {
+      "email": "daksha@gmail.com",
       "role": "employee",
-      "password": "employee123",
-      "id":"employee1"
+      "password": "Daksha",
+      "id": "Daksha123",
+      "name": "Daksha",
+      "reports": "Sreekar123",
+      "paidLeaveBalance": 10,
+      "unpaidLeaveBalance": 10
     },
     {
-      "email": "manager@example.com",
+      "email": "santhosh@gmail.com",
       "role": "manager",
-      "password": "manager123",
-      "id":"manager1"
+      "password": "Santhosh",
+      "id": "Santhosh123",
+      "name": "Santhosh",
+      "reports": "Shyam123",
+      "paidLeaveBalance": 10,
+      "unpaidLeaveBalance": 10
     },
     {
-      "email": "hr@example.com",
+      "email": "spandana@gmail.com",
       "role": "hr",
-      "password": "hr123",
-      "id":"hr1"
+      "password": "Spandana",
+      "id": "Spandana123",
+      "name": "Spandana",
+      "reports": "Santhosh123",
+      "paidLeaveBalance": 10,
+      "unpaidLeaveBalance": 10
+    },
+    {
+      "email": "gova@gmail.com",
+      "role": "employee",
+      "password": "Gova",
+      "id": "Gova123",
+      "name": "Gova",
+      "reports": "Sreekar123",
+      "paidLeaveBalance": 10,
+      "unpaidLeaveBalance": 10
+    },
+    {
+      "email": "Robin@gmail.com",
+      "role": "manager",
+      "password": "Robin",
+      "id": "Robin123",
+      "name": "Robin",
+      "reports": "Shyam123",
+      "paidLeaveBalance": 10,
+      "unpaidLeaveBalance": 10
+    },
+    {
+      "email": "chandini@gmail.com",
+      "role": "employee",
+      "password": "Chandini",
+      "id": "Chandini123",
+      "name": "Chandini",
+      "reports": "Robin123",
+      "paidLeaveBalance": 7,
+      "unpaidLeaveBalance": 10
+    },
+    {
+      "email": "sathya@gmail.com",
+      "role": "employee",
+      "password": "Sathya",
+      "id": "Sathya123",
+      "name": "Sathya",
+      "reports": "Robin123",
+      "paidLeaveBalance": 10,
+      "unpaidLeaveBalance": 10
+    },
+    {
+      "email": "kusuma@gmail.com",
+      "role": "employee",
+      "password": "Kusuma",
+      "id": "Kusuma123",
+      "name": "Kusuma",
+      "reports": "Robin123",
+      "paidLeaveBalance": 10,
+      "unpaidLeaveBalance": 10
+    },
+    {
+      "id": "1747975319226",
+      "name": "Mahesh",
+      "role": "hr",
+      "leaves": 0,
+      "email": "mahesh@gmail.com",
+      "password": "Mahesh",
+      "paidLeaveBalance": 10,
+      "unpaidLeaveBalance": 10,
+      "reports": "Santhosh123"
+    }
+  ],
+  "leaves": [
+    {
+      "id": "53d9",
+      "userId": "Teju123",
+      "startDate": "2025-05-26",
+      "endDate": "2025-05-27",
+      "leaveCategory": "Sick",
+      "leavePaymentType": "paid",
+      "reason": "wertyrterw",
+      "days": 2,
+      "status": "cancelled",
+      "submittedAt": "2025-05-23T12:53:43.475Z"
+    },
+    {
+      "id": "2457",
+      "userId": "Teju123",
+      "startDate": "2025-05-27",
+      "endDate": "2025-05-28",
+      "leaveCategory": "Sick",
+      "leavePaymentType": "paid",
+      "reason": "wedfvfds",
+      "days": 2,
+      "status": "rejected",
+      "submittedAt": "2025-05-23T12:54:07.779Z",
+      "processedAt": "2025-05-23T12:54:48.675Z"
     }
   ]
 }

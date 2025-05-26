@@ -1,0 +1,299 @@
+/* ManagerDashboard.css */
+
+/* Root variables for consistent theming */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --success-color: #27ae60;
+    --danger-color: #e74c3c;
+    --background-color: #f5f7fa;
+    --text-color: #333;
+    --border-color: #e0e0e0;
+    --table-bg: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+    --pending-color: #f1c40f; 
+}
+
+/* Main container */
+.manager-dashboard {
+    width: 70vw;
+    margin: 2rem -17%;
+    padding: 2rem;
+    background-color: var(--background-color);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+/* Header and Navigation */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    margin-bottom: 2rem;
+}
+
+.profile-menu-container {
+    position: relative;
+}
+
+.dashboard-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    font-size: 16px;
+    color: #1a73e8;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: var(--transition);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    background-color: #e8f0fe;
+    color: #155ab6;
+}
+
+.nav-link.active {
+    background-color: #1a73e8;
+    color: white;
+}
+
+/* Pending indicator (yellow dot) */
+.pending-indicator {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--pending-color);
+    border-radius: 50%;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+/* Heading */
+.manager-dashboard h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Team section */
+.team-section {
+    margin-bottom: 2rem;
+    overflow-x: auto;
+}
+
+.team-section h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Team table styling */
+.team-section table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--table-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.team-section th,
+.team-section td {
+    padding: 1rem;
+    text-align: left;
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+
+.team-section th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.team-section td {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.team-section tr:hover {
+    background-color: #f1f3f5;
+    transition: var(--transition);
+}
+
+/* Leave requests section */
+.leave-requests {
+    overflow-x: auto;
+}
+
+.leave-requests h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.leave-requests p {
+    font-size: 1rem;
+    color: var(--text-color);
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Leave requests table styling */
+.leave-requests table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--table-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.leave-requests th,
+.leave-requests td {
+    padding: 1rem;
+    text-align: left;
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+
+.leave-requests th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.leave-requests td {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.leave-requests tr:hover {
+    background-color: #f1f3f5;
+    transition: var(--transition);
+}
+
+/* Status styling */
+.status-approved {
+    color: var(--success-color);
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.status-rejected {
+    color: var(--danger-color);
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+/* Button styling */
+.leave-requests button {
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.leave-requests button:first-of-type {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.leave-requests button:first-of-type:hover {
+    background-color: #219653;
+}
+
+.leave-requests button:last-of-type {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.leave-requests button:last-of-type:hover {
+    background-color: #c0392b;
+}
+
+/* Loading and Error States */
+.loading,
+.error {
+    text-align: center;
+    font-size: 18px;
+    color: var(--text-color);
+    padding: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .manager-dashboard {
+        padding: 1rem;
+        margin: 1rem;
+    }
+
+    .manager-dashboard h2 {
+        font-size: 1.75rem;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .dashboard-nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .team-section h3,
+    .leave-requests h3 {
+        font-size: 1.25rem;
+    }
+
+    .team-section th,
+    .team-section td,
+    .leave-requests th,
+    .leave-requests td {
+        padding: 0.75rem;
+        font-size: 0.85rem;
+    }
+
+    .leave-requests button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .manager-dashboard h2 {
+        font-size: 1.5rem;
+    }
+
+    .team-section h3,
+    .leave-requests h3 {
+        font-size: 1.1rem;
+    }
+
+    .team-section th,
+    .team-section td,
+    .leave-requests th,
+    .leave-requests td {
+        font-size: 0.8rem;
+    }
+
+    .leave-requests button {
+        width: 100%;
+        margin: 0.25rem 0;
+    }
+}

@@ -1,15 +1,14 @@
+/* src/styles/EmpDashboard.css */
 .emp-dashboard {
     min-height: 80vh;
     width: 70vw;
     padding: 1rem;
-    margin: 0 -12%;
+    margin: 0 -17%;
     background-color: #f5f7fa;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
+.dashboard-container {
+    width: 95%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
@@ -22,18 +21,19 @@ h2 {
     font-size: 28px;
 }
 
-.dashboard-container{
+.dashboard-container {
     display: flex;
-    justify-content:space-around;
-    align-items: center;    
+    justify-content: space-around;
+    align-items: center;
     flex-direction: row;
     margin-bottom: 5%;
+    padding: 2%;
 }
 
 .emp-leave-balance {
     background: #fff;
     padding: 1%;
-    width:60%;
+    width: 40%;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     height: auto;
@@ -46,7 +46,17 @@ h2 {
 
 .emp-leave-balance p {
     font-size: 16px;
-    color: #555; 
+    color: #555;
+}
+
+.calendar-section{
+    width:30%;
+    padding: 0 3%;
+}
+
+.button-container{
+    width:10%;
+    padding:3%;
 }
 
 .action-buttons {
@@ -55,6 +65,7 @@ h2 {
     gap: 15px;
     border-radius: 10px;
     height: auto;
+    padding-right: 5%;
 }
 
 .leave-button {
@@ -67,13 +78,63 @@ h2 {
     font-size: 16px;
     font-weight: 500;
     text-align: center;
-    width: 100%;
+    width: 150%;
+    height: 2.5rem;
 }
 
 .leave-button:hover {
     background-color: #155ab6;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Header and Navigation */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f5f8fa;
+    border-bottom: 1px solid #ddd;
+}
+
+.profile-menu-container {
+    position: relative;
+}
+
+.dashboard-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    font-size: 16px;
+    color: #1a73e8;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #e8f0fe;
+    color: #155ab6;
+}
+
+.nav-link.active {
+    background-color: #1a73e8;
+    color: white;
+}
+
+/* Pending indicator (yellow dot) */
+.pending-indicator {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #f1c40f;
+    border-radius: 50%;
+    margin-left: 8px;
+    vertical-align: middle;
 }
 
 /* Modal styles */
@@ -115,14 +176,42 @@ h2 {
     color: #333;
 }
 
+/* Loading and Error States */
+.loading,
+.error {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+    padding: 20px;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
+    .emp-dashboard {
+        width: 90vw;
+    }
+
     .container {
         grid-template-columns: 1fr;
     }
-    
+
     .emp-leave-balance,
     .action-buttons {
+        width: 100%;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .dashboard-nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .leave-button {
         width: 100%;
     }
 }

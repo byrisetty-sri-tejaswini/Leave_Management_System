@@ -1,0 +1,42 @@
+/* src/styles/LeaveSummary.css */
+.leave-summary {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e7f3fe;
+    border: 1px solid #b3d7ff;
+}
+
+.leave-summary h2 {
+    font-size: 20px;
+    color: #31708f;
+}
+.leave-summary table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.leave-summary th, .leave-summary td {
+    border: 1px solid #b3d7ff;
+    padding: 8px;
+}
+.leave-summary th {
+    background-color: #d9edf7;
+    color: #31708f;
+}
+.leave-summary tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.leave-summary tr:hover {
+    background-color: #d1ecf1;
+}
+.leave-summary .leave-status {
+    font-weight: bold;
+}
+.leave-summary .approved {
+    color: green;
+}
+.leave-summary .pending {
+    color: orange;
+}
+.leave-summary .rejected {
+    color: red;
+}

@@ -1,0 +1,130 @@
+/* Common styles for both components */
+.leave-status-container,
+.leave-history-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+
+.leave-status-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2%;
+    padding-bottom: 2%;
+}
+
+.leave-status-header h2 {
+    color: #1378de;
+    margin: 0;
+    font-size: 1.5rem;
+    
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #7f8c8d;
+    transition: color 0.2s;
+    line-height: 1;
+}
+
+.loading, .no-requests, .no-history {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+}
+
+.error-message {
+  color: #d32f2f;
+  background-color: #fde8e8;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.error {
+  color: #d32f2f;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Tables */
+.leave-requests-table,
+.leave-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.leave-requests-table th,
+.leave-history-table th {
+  background-color: #f0f0f0;
+  padding: 12px;
+
+  font-weight: 600;
+}
+
+.leave-requests-table td,
+.leave-history-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Status indicators */
+.status-pending {
+  color: #ff9800;
+  font-weight: 500;
+}
+
+.status-approved {
+  color: #4caf50;
+  font-weight: 500;
+}
+
+.status-rejected,
+.status-cancelled {
+  color: #f44336;
+  font-weight: 500;
+}
+
+.header{
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+/* Cancel button */
+.cancel-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cancel-btn:hover {
+  background-color: #d32f2f;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .leave-requests-table,
+  .leave-history-table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+.close{
+  margin-left:90%;
+  margin-top:-6%;
+  margin-bottom:3%;
+  line-height: 1;
+}
