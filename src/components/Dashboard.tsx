@@ -3,25 +3,25 @@ import { useNavigate } from 'react-router-dom';
 import EmployeeDashboard from './EmployeeDashboard';
 import ManagerDashboard from './ManagerDashboard';
 import HRDashboard from './HRDashboard';
-
 interface DashboardProps {
     userId: string | null; // Pass userId as a prop 
 }
-
-const Dashboard: React.FC<DashboardProps> = ({userId}) => {
+/**
+* @description Navigates to the User's dashboard based on their role.
+* @param {DashboardProps} props - The properties for the Dashboard component.
+* @returns Users dashboard component based on their role.
+*/
+const Dashboard: React.FC<DashboardProps> = ({ userId }) => {
     const navigate = useNavigate();
-
     const userStr = sessionStorage.getItem('user');
     const user = userStr ? JSON.parse(userStr) : null;
-
     useEffect(() => {
         if (!user) {
             navigate('/login');
         }
     }, [user, navigate]);
-
-    if (!user) return null; 
-
+    if (!user)
+        return null;
     switch ((user.role).toLowerCase()) {
         case 'employee':
             return <EmployeeDashboard />;
@@ -33,10 +33,5 @@ const Dashboard: React.FC<DashboardProps> = ({userId}) => {
             navigate('/login');
             return null;
     }
-   
 };
-
 export default Dashboard;
-
-
-

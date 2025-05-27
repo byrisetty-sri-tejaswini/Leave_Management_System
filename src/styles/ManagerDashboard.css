@@ -19,7 +19,7 @@
 .manager-dashboard {
     width: 70vw;
     margin: 2rem -17%;
-    padding: 2rem;
+    padding: 1.5rem;
     background-color: var(--background-color);
     border-radius: 12px;
     box-shadow: var(--shadow);
