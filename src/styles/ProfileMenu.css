@@ -1,24 +1,35 @@
 .profile-menu {
   width:100px;
   height: 100px;
-  /* margin-bottom: -200%; */
   position: relative;
   display: inline-block;
+  z-index: 1;
+  margin-left: -30%;
   
 }
 
+
 .profile-icon {
-  width: 30%;
-  height: 30%;
-  margin-top: 30%;
+  width: 50%;
+  height: 50%;
+  margin-top: 35%;
+  margin-right: 60%;
   border-radius: 50%;
   cursor: pointer;
 }
 
+.profile-menu p{
+  margin-left: 53%;
+  margin-top:-40%;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: rgba(238,156,56,255);
+}
+
 .dropdown-menu {
   position: absolute;
-  right: 30px;
-  top: 70px;
+  right: 60px;
+  top: 90px;
   background: white;
   border: 1px solid #ccc;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
@@ -34,9 +45,10 @@
   background: none;
   border: none;
   text-align: left;
-  font-size: 14px;
+  font-size: 1rem;
   cursor: pointer;
   color: #333;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .dropdown-menu button:hover {
@@ -46,7 +58,7 @@
 .profile-info-box {
   position: absolute;
   right: 0;
-  top: 100px; /* slightly below dropdown */
+  top: 140%; 
   background: white;
   border: 1px solid #ccc;
   box-shadow: 0 2px 12px rgba(0,0,0,0.15);
@@ -54,6 +66,17 @@
   padding: 15px;
   width: 200px;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 1rem;
   color: #333;
+
+}
+
+.profile-info-box p{
+  margin: 0;
+  padding: 5px 0;
+  font-size: 1rem;
+  text-align: left;
+  font-family: 'Times New Roman', Times, serif;
+  color: black;
+  font-weight:normal;
 }

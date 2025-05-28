@@ -10,19 +10,14 @@
     --text-color: #333;
     --border-color: #e0e0e0;
     --table-bg: #ffffff;
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
     --pending-color: #f1c40f; 
 }
 
 /* Main container */
 .manager-dashboard {
-    width: 70vw;
-    margin: 2rem -17%;
-    padding: 1.5rem;
-    background-color: var(--background-color);
+    width: 100%;
     border-radius: 12px;
-    box-shadow: var(--shadow);
 }
 
 /* Header and Navigation */
@@ -30,7 +25,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
     margin-bottom: 2rem;
 }
 
@@ -44,8 +38,8 @@
 }
 
 .nav-link {
-    font-size: 16px;
-    color: #1a73e8;
+    font-size: 1.1rem;
+    color: var(--background-color);
     text-decoration: none;
     padding: 8px 16px;
     border-radius: 4px;
@@ -53,19 +47,20 @@
     background: none;
     border: none;
     cursor: pointer;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .nav-link:hover {
-    background-color: #e8f0fe;
+    background-color: var(--background-color);
     color: #155ab6;
 }
 
 .nav-link.active {
     background-color: #1a73e8;
-    color: white;
+    color: var(--background-color);
+    font-family: 'Times New Roman', Times, serif;
 }
 
-/* Pending indicator (yellow dot) */
 .pending-indicator {
     display: inline-block;
     width: 8px;
@@ -89,12 +84,15 @@
 .team-section {
     margin-bottom: 2rem;
     overflow-x: auto;
+    width:80%;
+    padding:0 10%;
 }
 
 .team-section h3 {
     font-size: 1.5rem;
     color: var(--primary-color);
-    margin-bottom: 1rem;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 /* Team table styling */
@@ -104,14 +102,13 @@
     background-color: var(--table-bg);
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: var(--shadow);
 }
 
 .team-section th,
 .team-section td {
-    padding: 1rem;
-    text-align: left;
-    font-size: 0.95rem;
+    padding: 1rem ;
+    text-align: center;
+    font-size: 1rem;
     color: var(--text-color);
 }
 
@@ -139,7 +136,8 @@
 .leave-requests h3 {
     font-size: 1.5rem;
     color: var(--primary-color);
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    text-align: center;
 }
 
 .leave-requests p {
@@ -151,19 +149,20 @@
 
 /* Leave requests table styling */
 .leave-requests table {
-    width: 100%;
+    width: 80%;
     border-collapse: collapse;
     background-color: var(--table-bg);
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: var(--shadow);
+    padding: 0 10%;
+    margin: 0 auto;
 }
 
 .leave-requests th,
 .leave-requests td {
     padding: 1rem;
-    text-align: left;
-    font-size: 0.95rem;
+    text-align: center;
+    font-size: 1rem;
     color: var(--text-color);
 }
 
@@ -229,7 +228,7 @@
 .loading,
 .error {
     text-align: center;
-    font-size: 18px;
+    font-size: 1rem;
     color: var(--text-color);
     padding: 20px;
 }

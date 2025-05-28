@@ -179,7 +179,8 @@ const ApplyLeave: React.FC<ApplyLeaveProps> = ({ onClose, userId, onBalanceUpdat
     if (isUserLoading) {
         return <div>Loading...</div>;
     }
-    return (<div className="apply-leave-container">
+    return (
+        <div className="apply-leave-container">
             <div className="apply-leave-header">
                 <h2>Apply for Leave</h2>
                 <button className="close-btn" onClick={onClose}>×</button>
@@ -189,14 +190,14 @@ const ApplyLeave: React.FC<ApplyLeaveProps> = ({ onClose, userId, onBalanceUpdat
                 <div className="form-group">
                     <label>
                         Start Date
-                        <input type="date" name="startDate" value={formData.startDate} onChange={handleChange} required min={new Date().toISOString().split('T')[0]}/>
+                        <input type="date" name="startDate" value={formData.startDate} onChange={handleChange} required min={new Date().toISOString().split('T')[0]} />
                     </label>
                 </div>
 
                 <div className="form-group">
                     <label>
                         End Date
-                        <input type="date" name="endDate" value={formData.endDate} onChange={handleChange} required min={formData.startDate || new Date().toISOString().split('T')[0]}/>
+                        <input type="date" name="endDate" value={formData.endDate} onChange={handleChange} required min={formData.startDate || new Date().toISOString().split('T')[0]} />
                     </label>
                     {daysRequested > 0 && (<p className="days-requested">Days requested: {daysRequested}</p>)}
                 </div>
@@ -221,14 +222,14 @@ const ApplyLeave: React.FC<ApplyLeaveProps> = ({ onClose, userId, onBalanceUpdat
                         </select>
                     </label>
                     {balanceError && (<p className="balance-warning">
-                            Warning: You're requesting more days than your available balance
-                        </p>)}
+                        Warning: You're requesting more days than your available balance
+                    </p>)}
                 </div>
 
                 <div className="form-group">
                     <label>
                         Reason
-                        <textarea name="reason" value={formData.reason} onChange={handleChange} required rows={4} placeholder="Please provide a reason for your leave"/>
+                        <textarea name="reason" value={formData.reason} onChange={handleChange} required rows={4} placeholder="Please provide a reason for your leave" />
                     </label>
                 </div>
 
@@ -240,12 +241,12 @@ const ApplyLeave: React.FC<ApplyLeaveProps> = ({ onClose, userId, onBalanceUpdat
             </form>
 
             {error && (<div className="error-message">
-                    <p>{error}</p>
-                </div>)}
+                <p>{error}</p>
+            </div>)}
 
             {successMessage && (<div className="success-message">
-                    <p>{successMessage}</p>
-                </div>)}
+                <p>{successMessage}</p>
+            </div>)}
         </div>);
 };
 export default ApplyLeave;

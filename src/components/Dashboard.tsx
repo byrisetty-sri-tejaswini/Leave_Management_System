@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import EmployeeDashboard from './EmployeeDashboard';
-import ManagerDashboard from './ManagerDashboard';
-import HRDashboard from './HRDashboard';
+import EmployeeDashboard from './employeeDashboard';
+import ManagerDashboard from './managerDashboard';
+import HRDashboard from './hrDashboard';
 interface DashboardProps {
     userId: string | null; // Pass userId as a prop 
 }

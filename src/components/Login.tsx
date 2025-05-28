@@ -35,13 +35,22 @@ const Login: React.FC = () => {
         }
     };
     return (<>
-      <h1>Leave Management System</h1>
+    <div className="login">
+    <div className="left-container">
+        <img src="/assets/name.png" alt="Logo" className="logo" />
+    </div>
+    <div className="right-container">
+      <div className='content'>
       <form onSubmit={handleLogin} className="login-container">
+        <img src="/assets/logo.jpg" alt="Logo" className="logo" />
         <h2>Login</h2>
         <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
         <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
         <button type="submit">Login</button>
       </form>
+      </div>
+    </div>
+    </div>
     </>);
 };
 export default Login;

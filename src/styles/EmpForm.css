@@ -2,13 +2,15 @@
 .employee-form {
     margin-top: 20px;
     padding: 15px;
+    width:150%;
+    border-radius: 5%;
     background-color: #fff;
     border: 1px solid #ccc;
 }
 
 .editing h2{
     color: rgb(208, 19, 19);
-    margin-right:36%;
+    margin-right:30%;
 }
 
 .employee-form h2 {
@@ -38,11 +40,11 @@
 }
 .employee-form .error {
     color: red;
-    font-size: 12px;
+    font-size: 1.02rem;
 }
 .employee-form .success {
     color: green;
-    font-size: 12px;
+    font-size: 1.02rem;
 }
 
 [type=submit]{

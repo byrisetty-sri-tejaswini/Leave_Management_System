@@ -6,6 +6,11 @@
 .employee-list table {
     width: 100%;
     border-collapse: collapse;
+    text-align: center;
+}
+
+.selected-row { 
+    background-color: #fff3cd;
 }
 
 .employee-list th, .employee-list td {

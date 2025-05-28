@@ -17,7 +17,7 @@
       "id": "Teju123",
       "name": "Teju",
       "reports": "Sreekar123",
-      "paidLeaveBalance": 10,
+      "paidLeaveBalance": 6,
       "unpaidLeaveBalance": 10
     },
     {
@@ -133,6 +133,93 @@
     }
   ],
   "leaves": [
-    
+    {
+      "id": "5ec7",
+      "userId": "Teju123",
+      "startDate": "2025-05-28",
+      "endDate": "2025-05-28",
+      "leaveCategory": "Sick",
+      "leavePaymentType": "paid",
+      "reason": "Fever",
+      "days": 1,
+      "status": "cancelled",
+      "submittedAt": "2025-05-27T12:04:12.072Z"
+    },
+    {
+      "id": "790d",
+      "userId": "Teju123",
+      "startDate": "2025-05-29",
+      "endDate": "2025-05-30",
+      "leaveCategory": "Vacation",
+      "leavePaymentType": "paid",
+      "reason": "Family Trip",
+      "days": 2,
+      "status": "cancelled",
+      "submittedAt": "2025-05-27T12:10:49.314Z"
+    },
+    {
+      "id": "b4a4",
+      "userId": "Teju123",
+      "startDate": "2025-05-29",
+      "endDate": "2025-05-29",
+      "leaveCategory": "Sick",
+      "leavePaymentType": "paid",
+      "reason": "vsder",
+      "days": 1,
+      "status": "approved",
+      "submittedAt": "2025-05-28T09:10:39.959Z",
+      "processedAt": "2025-05-28T09:10:58.805Z"
+    },
+    {
+      "id": "0aaf",
+      "userId": "Teju123",
+      "startDate": "2025-05-30",
+      "endDate": "2025-05-31",
+      "leaveCategory": "Sick",
+      "leavePaymentType": "paid",
+      "reason": "acsdvgb",
+      "days": 1,
+      "status": "rejected",
+      "submittedAt": "2025-05-28T09:48:30.223Z",
+      "processedAt": "2025-05-28T09:54:52.427Z"
+    },
+    {
+      "id": "7042",
+      "userId": "Teju123",
+      "startDate": "2025-06-01",
+      "endDate": "2025-06-02",
+      "leaveCategory": "Sick",
+      "leavePaymentType": "paid",
+      "reason": "Edgvbh",
+      "days": 1,
+      "status": "approved",
+      "submittedAt": "2025-05-28T10:04:31.581Z",
+      "processedAt": "2025-05-28T10:04:41.761Z"
+    },
+    {
+      "id": "e4e8",
+      "userId": "Teju123",
+      "startDate": "2025-06-05",
+      "endDate": "2025-06-05",
+      "leaveCategory": "Sick",
+      "leavePaymentType": "paid",
+      "reason": "vw3agr",
+      "days": 1,
+      "status": "rejected",
+      "submittedAt": "2025-05-28T10:31:18.346Z",
+      "processedAt": "2025-05-28T10:31:38.200Z"
+    },
+    {
+      "id": "4e99",
+      "userId": "Teju123",
+      "startDate": "2025-06-06",
+      "endDate": "2025-06-06",
+      "leaveCategory": "Sick",
+      "leavePaymentType": "paid",
+      "reason": "ascvdrtb",
+      "days": 1,
+      "status": "pending",
+      "submittedAt": "2025-05-28T11:02:28.910Z"
+    }
   ]
 }

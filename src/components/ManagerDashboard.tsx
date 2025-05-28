@@ -4,8 +4,8 @@ import { useFetchLeaveRequestsQuery, useUpdateLeaveRequestMutation } from '../se
 import { useFetchUsersQuery, useUpdateLeaveBalanceMutation, useFetchUserByIdQuery } from '../services/userService';
 import '../styles/ManagerDashboard.css';
 import type { User } from '../types';
-import ProfileMenu from './ProfileMenu';
-import EmployeeFetcher from '../subcomponents/Manager/EmployeeFetcher';
+import ProfileMenu from './profileMenu';
+import EmployeeFetcher from '../subcomponents/Manager/employeeFetcher';
 
 /**
 * @description ManagerDashboard component for managing leave requests and team members.
@@ -126,6 +126,7 @@ const ManagerDashboard: React.FC = () => {
                                 <th>Employee ID</th>
                                 <th>Name</th>
                                 <th>Email</th>
+                                <th>Role</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -135,6 +136,7 @@ const ManagerDashboard: React.FC = () => {
                                         <td>{member.id}</td>
                                         <td>{member.name}</td>
                                         <td>{member.email}</td>
+                                        <td>{member.role}</td>
                                     </tr>)))}
                         </tbody>
                     </table>
@@ -184,3 +186,8 @@ const ManagerDashboard: React.FC = () => {
         </div>);
 };
 export default ManagerDashboard;
+
+
+
+
+

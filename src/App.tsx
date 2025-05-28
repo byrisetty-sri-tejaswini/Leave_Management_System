@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Login from './components/Login';
-import EmployeeDashboard from './components/EmployeeDashboard';
-import HRDashboard from './components/HRDashboard';
-import ManagerDashboard from './components/ManagerDashboard';
+import Login from './components/login';
+import EmployeeDashboard from './components/employeeDashboard';
+import HRDashboard from './components/hrDashboard';
+import ManagerDashboard from './components/managerDashboard';
 import './App.css';
 /**
 * @description ProtectedRoute component to restrict access based on user role.

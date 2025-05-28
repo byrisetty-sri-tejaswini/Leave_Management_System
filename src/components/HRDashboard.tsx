@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import EmployeeList from '../subcomponents/HR/EmployeeList';
-import EmployeeForm from '../subcomponents/HR/EmployeeForm';
-import RoleAssignment from '../subcomponents/HR/RoleAssignment';
-import ProfileMenu from './ProfileMenu';
+import EmployeeList from '../subcomponents/HR/employeeList';
+import EmployeeForm from '../subcomponents/HR/employeeForm';
+import RoleAssignment from '../subcomponents/HR/roleAssignment';
+import ProfileMenu from './profileMenu';
 import '../styles/HRDashboard.css';
-import LeaveSummary from '../subcomponents/HR/LeaveSummary';
+import LeaveSummary from '../subcomponents/HR/leaveSummary';
 import { useFetchUsersQuery, useAddUserMutation, useUpdateUserMutation, useDeleteUserMutation } from '../services/userService';
 /**
 * @description HRDashboard component for managing employee data.
@@ -145,14 +145,15 @@ const HRDashboard: React.FC = () => {
         setShowForm(false);
         setShowRoleAssignment(false);
     };
-    return (<div className="hr-dashboard">
+    return (
+        <div className="hr-dashboard">
             <header className="dashboard-header">
                 <nav className="dashboard-nav">
                     <Link to="/employee-dashboard" className="nav-link">My Dashboard</Link>
                     <Link to="/hr-dashboard" className="nav-link active">Employee Data</Link>
                 </nav>
                 <div className="profile-menu-container">
-                    <ProfileMenu onLogout={handleLogout}/>
+                    <ProfileMenu onLogout={handleLogout} />
                 </div>
             </header>
 
@@ -163,56 +164,56 @@ const HRDashboard: React.FC = () => {
                 </button>
 
                 <button id="btn" onClick={() => {
-            if (selectedUser) {
-                setShowForm(true);
-            }
-            else {
-                alert('Please select a user to edit.');
-            }
-        }} style={{ backgroundColor: "#f5e834" }}>
+                    if (selectedUser) {
+                        setShowForm(true);
+                    }
+                    else {
+                        alert('Please select a user to edit.');
+                    }
+                }} style={{ backgroundColor: "#f5e834" }}>
                     Edit User
                 </button>
 
                 <button id="btn" onClick={() => {
-            if (selectedUser) {
-                if (window.confirm(`Are you sure you want to remove ${selectedUser.name}?`)) {
-                    removeUser(selectedUser.id);
-                }
-            }
-            else {
-                alert('Please select a user to remove.');
-            }
-        }} style={{ backgroundColor: "red" }}>
+                    if (selectedUser) {
+                        if (window.confirm(`Are you sure you want to remove ${selectedUser.name}?`)) {
+                            removeUser(selectedUser.id);
+                        }
+                    }
+                    else {
+                        alert('Please select a user to remove.');
+                    }
+                }} style={{ backgroundColor: "red" }}>
                     Remove User
                 </button>
 
                 <button id="btn" onClick={() => {
-            if (selectedUser) {
-                setShowRoleAssignment(true);
-            }
-            else {
-                alert('Please select a user to assign a manager.');
-            }
-        }}>
+                    if (selectedUser) {
+                        setShowRoleAssignment(true);
+                    }
+                    else {
+                        alert('Please select a user to assign a manager.');
+                    }
+                }}>
                     Assign Manager
                 </button>
             </div>
 
             {showForm && (<div className="modal-backdrop">
-                    <div className="modal-container">
-                        <EmployeeForm onClose={() => setShowForm(false)} onSubmit={selectedUser ? editUser : addNewUser} userToEdit={selectedUser}/>
-                    </div>
-                </div>)}
+                <div className="modal-container">
+                    <EmployeeForm onClose={() => setShowForm(false)} onSubmit={selectedUser ? editUser : addNewUser} userToEdit={selectedUser} />
+                </div>
+            </div>)}
 
             {showRoleAssignment && selectedUser && (<div className="modal-backdrop">
-                    <div className="modal-container">
-                        <RoleAssignment employee={selectedUser} onClose={() => setShowRoleAssignment(false)} onAssign={handleAssignManager}/>
-                    </div>
-                </div>)}
-        
-            <EmployeeList users={users} onUserClick={handleUserClick} selectedUserId={selectedUser ? selectedUser.id : null}/>
+                <div className="modal-container">
+                    <RoleAssignment employee={selectedUser} onClose={() => setShowRoleAssignment(false)} onAssign={handleAssignManager} />
+                </div>
+            </div>)}
 
-            {showLeaveSummary && selectedUser && (<LeaveSummary employee={selectedUser}/>)}
+            <EmployeeList users={users} onUserClick={handleUserClick} selectedUserId={selectedUser ? selectedUser.id : null} />
+
+            {showLeaveSummary && selectedUser && (<LeaveSummary employee={selectedUser} />)}
         </div>);
 };
 export default HRDashboard;

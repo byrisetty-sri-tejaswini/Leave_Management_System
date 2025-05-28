@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useGetTeamLeaveRequestsQuery, useUpdateLeaveStatusMutation } from '../../services/leavesService';
 import { useUpdateLeaveBalanceMutation } from '../../services/userService';
 import '../../styles/ManagerLeaveRequests.css';
-import EmployeeFetcher from './EmployeeFetcher';
+import EmployeeFetcher from './employeeFetcher';
+import Table from '../../components/table';
 interface Employee {
     id: string;
     name: string;
@@ -33,6 +34,7 @@ const ManagerLeaveRequests: React.FC = () => {
     const [comment, setComment] = useState('');
     const [selectedRequest, setSelectedRequest] = useState<LeaveRequest | null>(null);
     const [isProcessing, setIsProcessing] = useState(false);
+
     const handleApproveReject = async (requestId: number, status: 'approved' | 'rejected', employee?: any) => {
         setIsProcessing(true);
         try {
@@ -74,6 +76,56 @@ const ManagerLeaveRequests: React.FC = () => {
             setIsProcessing(false);
         }
     };
+
+    const columns: { header: string; accessor: (row: LeaveRequest) => React.ReactNode }[] = [
+        {
+            header: 'Employee',
+            accessor: (row: LeaveRequest) => (
+                <EmployeeFetcher employeeId={row.employee.id}>
+                    {({ employee, isLoading: isEmployeeLoading, isError: isEmployeeError }) =>
+                        isEmployeeLoading ? <span>Loading...</span> : isEmployeeError ? <span>Error</span> : <span>{row.employee.name}</span>
+                    }
+                </EmployeeFetcher>
+            ),
+        },
+        {
+            header: 'Leave Type',
+            accessor: (row: LeaveRequest) => `${row.leaveCategory} (${row.leavePaymentType})`,
+        },
+        {
+            header: 'Dates',
+            accessor: (row: LeaveRequest) =>
+                `${new Date(row.startDate).toLocaleDateString()} - ${new Date(row.endDate).toLocaleDateString()}`,
+        },
+        {
+            header: 'Days',
+            accessor: (row: LeaveRequest) => row.days,
+        },
+        {
+            header: 'Reason',
+            accessor: (row: LeaveRequest) => row.reason,
+        },
+        {
+            header: 'Status',
+            accessor: (row: LeaveRequest) => (
+                <span className={`status-${row.status}`}>{row.status}</span>
+            ),
+        },
+        {
+            header: 'Actions',
+            accessor: (row: LeaveRequest) =>
+                row.status === 'pending' ? (
+                    <button
+                        className="approve-btn"
+                        onClick={() => setSelectedRequest(row)}
+                        disabled={isProcessing}
+                    >
+                        Review
+                    </button>
+                ) : null,
+        },
+    ];
+
     if (isLoading)
         return <div>Loading team leave requests...</div>;
     if (error)
@@ -81,43 +133,18 @@ const ManagerLeaveRequests: React.FC = () => {
     return (<div className="manager-leave-requests">
             <h2>Team Leave Requests</h2>
             <div className="requests-list">
-                {Array.isArray(leaveRequests) && leaveRequests.length === 0 ? (<p>No pending leave requests</p>) : (<table>
-                        <thead>
-                            <tr>
-                                <th>Employee</th>
-                                <th>Leave Type</th>
-                                <th>Dates</th>
-                                <th>Days</th>
-                                <th>Reason</th>
-                                <th>Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {(leaveRequests as LeaveRequest[] | undefined)?.map((request: LeaveRequest) => (<EmployeeFetcher key={request.id} employeeId={request.employee.id}>
-                                    {({ employee, isLoading: isEmployeeLoading, isError: isEmployeeError }) => (<tr>
-                                            <td>
-                                                {isEmployeeLoading ? 'Loading...' : isEmployeeError ? 'Error' : request.employee.name}
-                                            </td>
-                                            <td>{request.leaveCategory} ({request.leavePaymentType})</td>
-                                            <td>
-                                                {new Date(request.startDate).toLocaleDateString()} -
-                                                {new Date(request.endDate).toLocaleDateString()}
-                                            </td>
-                                            <td>{request.days}</td>
-                                            <td>{request.reason}</td>
-                                            <td className={`status-${request.status}`}>
-                                                {request.status}
-                                            </td>
-                                            <td>
-                                                {request.status === 'pending' && (<button className="approve-btn" onClick={() => setSelectedRequest(request)} disabled={isProcessing || isEmployeeLoading || isEmployeeError}>
-                                                        Review
-                                                    </button>)}
-                                            </td>
-                                        </tr>)}
-                                </EmployeeFetcher>))}
-                        </tbody>
-                    </table>)}
+                {Array.isArray(leaveRequests) && leaveRequests.length === 0 ? (<p>No pending leave requests</p>) : ( 
+                    <Table<LeaveRequest>
+                        columns={columns}
+                        rows={
+                            Array.isArray(leaveRequests)
+                                ? leaveRequests.map((leave: any) => ({
+                                    ...leave,
+                                    employee: leave.employee || { id: leave.employeeId || '', name: leave.employeeName || '' }
+                                })) as LeaveRequest[]
+                                : []
+                        }
+                    />)}
             </div>
 
             {selectedRequest && (<div className="review-modal">

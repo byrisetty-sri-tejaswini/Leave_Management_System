@@ -1,14 +1,64 @@
+body{
+  padding: 0%;
+  margin: 0;
+}
+.login{
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.left-container{
+  width:60%;
+  height:100vh;
+  background-color: rgba(0,77,129,255);
+}
+
+.left-container img{
+  width: 50%;
+  height: 50%;
+  margin: 20%;
+  /* margin-left:25%; */
+  align-items: center;
+}
+
+.right-container{
+  width:50%;
+  height:100vh;
+  background-color: rgba(238,156,56,255)
+}
+
+.content{
+  margin-top:30%;
+}
+
 .login-container {
   width: 50%;
   margin: 5% auto;
   padding: 2rem;
-  background: linear-gradient(145deg, #e4e4e6, #e0e0e0);
-  border-radius: 20px;
+  /* background: linear-gradient(145deg, #e4e4e6, #e0e0e0); */
+  background-color: white;
+  border-radius: 4%;
   text-align: center;
   transition: all 0.3s ease-in-out;
 }
+
+
  
+h1{
+  text-align: center;
+  color: white;
+  margin: 5% 0;
+}
+
+.login-container img{
+  width:20%;
+  height:20%;
+}
+
+
 .login-container h2 {
+  text-align: center;
   margin-bottom: 1.5rem;
   color: #333;
 }
@@ -21,6 +71,7 @@
   border-radius: 10px;
   font-size: 1rem;
   outline: none;
+  background-color: rgb(222, 226, 226);
 }
  
 .login-container button {
@@ -28,7 +79,7 @@
   padding: 0.75rem 2rem;
   border: none;
   background-color: #4a90e2;
-  color: white;
+  color: rgb(255, 255, 255);
   font-weight: bold;
   border-radius: 12px;
   cursor: pointer;

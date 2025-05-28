@@ -54,8 +54,6 @@ const DynamicCalendar: React.FC = () => {
             width: '110%',
             height: '50%',
             margin: '20px auto',
-            fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-            //   boxShadow: '0 0 10px rgba(0,0,0,0.1)',
             borderRadius: '10px',
             overflow: 'hidden'
         }}>
@@ -63,9 +61,7 @@ const DynamicCalendar: React.FC = () => {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            // backgroundColor: '#3f51b5',
             color: 'white',
-            // padding: '10px 15px'
         }}>
         <button onClick={handlePrevMonth} style={{ background: 'none', border: 'none', color: 'blue', fontSize: '20px', cursor: 'pointer' }} aria-label="Previous Month">
           &#8592;

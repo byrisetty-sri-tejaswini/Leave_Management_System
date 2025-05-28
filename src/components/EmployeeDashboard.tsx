@@ -1,52 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
-import ApplyLeave from '../subcomponents/Employee/ApplyLeave';
-import LeaveStatus from '../subcomponents/Employee/LeaveStatus';
+import ApplyLeave from '../subcomponents/Employee/applyLeave';
+import LeaveStatus from '../subcomponents/Employee/leaveStatus';
 import { Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import '../styles/EmpDashboard.css';
-import DynamicCalendar from './DynamicCalender';
-import LeaveHistory from '../subcomponents/Employee/LeaveHistory';
-import ProfileMenu from './ProfileMenu';
+import DynamicCalendar from './dynamicCalender';
+import LeaveHistory from '../subcomponents/Employee/leaveHistory';
+import ProfileMenu from './profileMenu';
 import { useFetchUserByIdQuery } from '../services/userService';
 import { useFetchLeaveRequestsQuery } from '../services/leavesService';
-import type { User } from '../types';
+
 ChartJS.register(ArcElement, Tooltip, Legend);
+
 /**
 * @description EmployeeDashboard component displays the employee's dashboard with leave balance, calendar, and options to apply for leave, check leave status, and view leave history.
 * It fetches employee data and leave requests using RTK Query, and allows employees to manage their leave requests.
-* @component
-* @example
-* return <EmployeeDashboard />;
-* @property {string} userId - The ID of the user, fetched from sessionStorage.
-* @property {function} navigate - The function to navigate to different routes.   
-* @property {object} employee - The employee data fetched from the API.
-* @property {boolean} isLoading - Indicates if the employee data is currently being loaded.
-* @property {boolean} isError - Indicates if there was an error fetching the employee data.
-* @property {function} setShowApplyLeave - Function to toggle the visibility of the Apply Leave modal.
-* @property {function} setShowLeaveStatus - Function to toggle the visibility of the Leave Status modal.
-* @property {function} setShowLeaveHistory - Function to toggle the visibility of the Leave History modal.
-* @property {number} paidLeaveBalance - The number of paid leave days remaining for the employee.
-* @property {number} unpaidLeaveBalance - The number of unpaid leave days remaining for the employee.
-* @property {function} setPaidLeaveBalance - Function to update the paid leave balance.
-* @property {function} setUnpaidLeaveBalance - Function to update the unpaid leave balance.
-* @property {function} handleLogout - Function to handle user logout, clearing sessionStorage and navigating to the login page.
-* @property {function} handleBalanceUpdate - Function to update the leave balances after applying for leave.
-* @property {object} chartData - Data for the Doughnut chart displaying leave balances.
-* @property {object} chartOptions - Options for the Doughnut chart.
-* @property {boolean} isHR - Indicates if the employee is an HR user.
-* @property {boolean} isManager - Indicates if the employee is a manager.
-* @property {boolean} hasPendingLeaves - Indicates if there are pending leave requests for managers.
-* @property {array} leaves - Array of leave requests fetched for managers to check pending leaves.
-* @property {function} useFetchUserByIdQuery - RTK Query hook to fetch user data by ID.
-* @property {function} useFetchLeaveRequestsQuery - RTK Query hook to fetch leave requests for the employee.
-* @function useEffect - React hook to perform side effects, such as fetching data and checking user authentication.
-* @function useState - React hook to manage state within the component.
-* @function useNavigate - React Router hook to programmatically navigate between routes.
-* @function useFetchUserByIdQuery - Custom hook to fetch user data by ID.   
-* @function useFetchLeaveRequestsQuery - Custom hook to fetch leave requests for the employee.
 * @returns {JSX.Element} - The rendered EmployeeDashboard component.
 */
+
 const EmployeeDashboard: React.FC = () => {
     const userId = sessionStorage.getItem('id');
     const navigate = useNavigate();
@@ -119,95 +91,93 @@ const EmployeeDashboard: React.FC = () => {
     const isManager = employee.role === 'manager';
     // Check for pending leave requests for managers
     const hasPendingLeaves = leaves.some(leave => leave.status === 'pending');
-    
-    return (
-    <div className="emp-dashboard">
-        <header className="dashboard-header">
-            {(isHR || isManager) ? (<nav className="dashboard-nav">
-                <NavLink to="/employee-dashboard" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-                    My Dashboard
-                </NavLink>
-                {isHR && (<NavLink to="/hr-dashboard" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-                    Employee Data
-                </NavLink>)}
-                {isManager && (<>
-                    <NavLink to="/manager-dashboard?tab=team" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-                        My Team
-                    </NavLink>
-                    <NavLink to="/manager-dashboard?tab=leave-requests" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-                        Leave Requests
-                        {hasPendingLeaves && <span className="pending-indicator"></span>}
-                    </NavLink>
-                </>)}
-            </nav>) : (<h2>My Dashboard</h2>)}
-            <div className="profile-menu-container">
-                <ProfileMenu onLogout={handleLogout} />
-            </div>
-        </header>
 
-        <div className="dashboard-container">
-            <div className="emp-leave-balance">
-                <h3>My Leave Balance</h3>
-                <div className="leave-chart">
-                    <h3>Leaves Taken</h3>
-                    <div className="chart-container" style={{ height: '200px', alignItems: 'center' }}>
-                        <Doughnut data={chartData} options={chartOptions} />
+    return (
+        <div className="emp-dashboard">
+            <header className="dashboard-header">
+                {(isHR || isManager) ? (<nav className="dashboard-nav">
+                    <NavLink to="/employee-dashboard" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+                        My Dashboard
+                    </NavLink>
+                    {isHR && (<NavLink to="/hr-dashboard" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+                        Employee Data
+                    </NavLink>)}
+                    {isManager && (<>
+                        <NavLink to="/manager-dashboard?tab=team" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+                            My Team
+                        </NavLink>
+                        <NavLink to="/manager-dashboard?tab=leave-requests" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+                            Leave Requests
+                            {hasPendingLeaves && <span className="pending-indicator"></span>}
+                        </NavLink>
+                    </>)}
+                </nav>) : (<h2>My Dashboard</h2>)}
+                <div className="profile-menu-container">
+                    <ProfileMenu onLogout={handleLogout} />
+                </div>
+            </header>
+
+            <div className="dashboard-container">
+                <div className="emp-leave-balance">
+                    <h3>My Leave Balance</h3>
+                    <div className="leave-chart">
+                        <h3>Leaves Taken</h3>
+                        <div className="chart-container" style={{ height: '200px', alignItems: 'center' }}>
+                            <Doughnut data={chartData} options={chartOptions} />
+                        </div>
+                    </div>
+                    <p>Paid Leave: {paidLeaveBalance} days remaining</p>
+                    <p>Unpaid Leave: {unpaidLeaveBalance} days remaining</p>
+                </div>
+
+                <div className='calendar-section'>
+                    <h3>Calendar</h3>
+                    <div className="calendar-container">
+                        <DynamicCalendar />
                     </div>
                 </div>
-                <p>Paid Leave: {paidLeaveBalance} days remaining</p>
-                <p>Unpaid Leave: {unpaidLeaveBalance} days remaining</p>
-            </div>
+                <div className='button-container'>
+                    <div className="action-buttons">
+                        <button onClick={() => {
+                            setShowApplyLeave(true);
+                            setShowLeaveStatus(false);
+                            setShowLeaveHistory(false);
+                        }} className="leave-button">
+                            Apply Leave
+                        </button>
 
-            <div className='calendar-section'>
-                <h3>Calendar</h3>
-                <div className="calendar-container">
-                    <DynamicCalendar />
+                        <button onClick={() => {
+                            setShowLeaveStatus(true);
+                            setShowApplyLeave(false);
+                            setShowLeaveHistory(false);
+                        }} className="leave-button">
+                            Leave Status
+                        </button>
+
+                        <button onClick={() => {
+                            setShowLeaveHistory(true);
+                            setShowApplyLeave(false);
+                            setShowLeaveStatus(false);
+                        }} className="leave-button">
+                            Leave History
+                        </button>
+                    </div>
                 </div>
             </div>
-            <div className='button-container'>
-                <div className="action-buttons">
-                    <button onClick={() => {
-                        setShowApplyLeave(true);
-                        setShowLeaveStatus(false);
-                        setShowLeaveHistory(false);
-                    }} className="leave-button">
-                        Apply Leave
-                    </button>
 
-                    <button onClick={() => {
-                        setShowLeaveStatus(true);
-                        setShowApplyLeave(false);
-                        setShowLeaveHistory(false);
-                    }} className="leave-button">
-                        Leave Status
-                    </button>
-
-                    <button onClick={() => {
-                        setShowLeaveHistory(true);
-                        setShowApplyLeave(false);
-                        setShowLeaveStatus(false);
-                    }} className="leave-button">
-                        Leave History
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        {showApplyLeave && (<div className="modal-backdrop">
-            <div className="modal-container">
+            {showApplyLeave && (<div className="modal-backdrop">
                 <ApplyLeave onClose={() => setShowApplyLeave(false)} userId={userId} onBalanceUpdate={handleBalanceUpdate} />
-            </div>
-        </div>)}
-        {showLeaveStatus && (<div className="modal-backdrop">
-            <div className="modal-container">
+            </div>)}
+            {showLeaveStatus && (<div className="modal-backdrop">
+
                 <LeaveStatus onClose={() => setShowLeaveStatus(false)} />
-            </div>
-        </div>)}
-        {showLeaveHistory && (<div className="modal-backdrop">
-            <div className="modal-container">
+
+            </div>)}
+            {showLeaveHistory && (<div className="modal-backdrop">
+
                 <LeaveHistory onClose={() => setShowLeaveHistory(false)} />
-            </div>
-        </div>)}
-    </div>);
+
+            </div>)}
+        </div>);
 };
 export default EmployeeDashboard;

@@ -40,7 +40,8 @@ const ProfileMenu: React.FC<ProfileMenuProps> = ({ onLogout }) => {
 
     return (
         <div className="profile-menu">
-            <img src="/assets/profile-user.png" className="profile-icon" onClick={toggleMenu} />
+            <img src="/assets/profile-user.png" className="profile-icon" onClick={toggleMenu} /> 
+            <p>{name}</p>
             {isOpen &&
                 (
                     <div className="dropdown-menu">
@@ -53,10 +54,10 @@ const ProfileMenu: React.FC<ProfileMenuProps> = ({ onLogout }) => {
             {showProfile && isOpen &&
                 (
                     <div className="profile-info-box">
-                        <p><strong>Name:</strong> {name}</p>
-                        <p><strong>Id:</strong>{id}</p>
-                        <p><strong>Email:</strong> {email}</p>
-                        <p><strong>Role:</strong> {role}</p>
+                        <p><strong>Name: </strong> {name}</p>
+                        <p><strong>Id: </strong>{id}</p>
+                        <p><strong>Email: </strong> {email}</p>
+                        <p><strong>Role: </strong> {role}</p>
                     </div>
                 )
             }
