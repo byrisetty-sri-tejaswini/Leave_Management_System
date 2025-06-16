@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
+
 const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const monthNames = [
     'January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'
 ];
+
 /**
 * @description DynamicCalendar component that displays a calendar for the current month and year.
 * It allows navigation between months and highlights the current date.
 * @component
 * @returns {JSX.Element} The rendered DynamicCalendar component.
 */
+
 const DynamicCalendar: React.FC = () => {
     const today = new Date();
     const [currentYear, setCurrentYear] = useState<number>(today.getFullYear());

@@ -218,8 +218,9 @@
       "leavePaymentType": "paid",
       "reason": "ascvdrtb",
       "days": 1,
-      "status": "pending",
-      "submittedAt": "2025-05-28T11:02:28.910Z"
+      "status": "approved",
+      "submittedAt": "2025-05-28T11:02:28.910Z",
+      "processedAt": "2025-05-30T03:32:57.911Z"
     }
   ]
 }
